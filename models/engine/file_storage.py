@@ -15,8 +15,8 @@ class FileStorage:
         i = {}
         for ky in FileStorage.__objects.keys():
             if isinstance(FileStorage.__objects[ky], classe):
-                i[ky] = FileStorage.__objects[key]
-        return tmp        
+                i[ky] = FileStorage.__objects[ky]
+        return i 
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -65,10 +65,7 @@ class FileStorage:
             return
 
         if obc.to_dict()['__class__'] + '.' + obc.id in FileStorage.__objects:
-
-            del FileStorage.__objects[obc.to_dict()['__class__'] + '.\
-
-' + obc.id]
+            del storage._FileStorage__objects[f"{obc.__class__.__name__}.{obc.id}"]
 
 
 
